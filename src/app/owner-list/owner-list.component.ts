@@ -41,9 +41,9 @@ export class OwnerListComponent implements OnInit {
     this.carService.getAll().subscribe(data => {
       console.log(data);
       this.cars = data._embedded.cars;
-      for(let owner of this.vector ){
+      for(let i of this.vector ){
         for(let j of this.owners){
-          if(owner == j._links.self.href){
+          if(i == j._links.self.href){
             for (let car of this.cars) {
               if(car.ownerDni == j.dni){
                 car.ownerDni = null;
@@ -53,10 +53,9 @@ export class OwnerListComponent implements OnInit {
             }
           }
         }
-        this.ownerService.remove(owner).subscribe();
+        this.ownerService.remove(i).subscribe();
       }
     });
-
     window.location.reload();
   }
 }
