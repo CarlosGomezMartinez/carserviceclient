@@ -6,8 +6,13 @@
       <mat-card-content>
         <input type="hidden" name="href" [(ngModel)]="car.href">
         <mat-form-field>
-          <input matInput placeholder="Car Name" [(ngModel)]="car.name"
+        <input matInput placeholder="Car Name" [(ngModel)]="car.name"
                  required name="name" #name>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Owner ID" [(ngModel)]="car.ownerDni"
+          required name="ownerDni" #name>
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>

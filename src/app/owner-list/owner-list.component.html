@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>Owner List</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let owner of owners">
+          <!--<img mat-list-avatar src="{{car.giphyUrl}}" alt="{{car.name}}">-->
+          <h3 mat-line>
+                  <input type="checkbox" (change) = "activo(owner._links.owner.href, $event.target.checked)"/>          
+            <a mat-button (click) = "obtainID(owner._links.self.href)">{{owner.name}}</a>
+          </h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  
+    <button mat-raised-button color="primary" [routerLink]="['/owner-add']">Agregar</button>
+    <button mat-raised-button color="primary" (click) = "remove()" type ="button">Remover</button>
+  </mat-card>
